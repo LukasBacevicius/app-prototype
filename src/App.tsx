@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Route, Switch } from 'react-router';
 import { ThemeProvider } from 'styled-components';
-import Theme from './theme';
+import { Theme } from './theme';
 import Main from './containers/Main';
 
-const App: React.FC = () => {
+const App: FC = () => {
   return (
     <ThemeProvider theme={Theme}>
-        <Switch>
-          <Route path="/" component={Main} />
-        </Switch>
+      <Switch>
+        <Route path="/" component={Main} />
+      </Switch>
     </ThemeProvider >
   )
 };

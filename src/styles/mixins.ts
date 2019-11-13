@@ -1,3 +1,7 @@
+/* 
+    should be a part of a theme
+*/
+
 export const resetLinkStyle = () => `
     text-decoration: none;
     font-weight: 600;

@@ -1,0 +1,8 @@
+{
+    "headingFontFamily": "Casual, Georgia, 'Times New Roman', Times, serif",
+    "bodyFontFamily": "Poppins, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+    "fontSizes": ["4rem", "2rem", "1.333rem", "1rem", "0.75rem", "10px"],
+    "bodySize": "1rem",
+    "headingLineHeight": 1,
+    "bodyLineHeight": 1.2
+}

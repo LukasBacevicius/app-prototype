@@ -1,0 +1,17 @@
+{
+    "primary": {
+        "dark": {
+            "100": "#29292A"
+        }
+    },
+    "secondary": {
+        "accent": {
+            "100": "#eb503f"
+        }
+    },
+    "state": {
+        "error": "",
+        "success": "",
+        "warning": ""
+    }
+}

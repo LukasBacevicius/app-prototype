@@ -1,11 +1,16 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
-//@ts-ignore
-import tw from 'tailwind.macro';
+import { Container, Row, Col } from 'react-awesome-styled-grid';
+
 
 const Main: FC = () => {
     return (
-        <></>
+        <>
+            <Container>
+                <Row>
+
+                </Row>
+            </Container>
+        </>
     );
 }
 
