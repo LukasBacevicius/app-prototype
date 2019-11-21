@@ -28,29 +28,29 @@ function zIndex(section: string, element: string) {
     return zIndexes[section][element];
 }
 
-const getRem = (pxValue: number) => pxValue / 16;
+const getRem = (pxValue: number, withUnit: boolean = false) => `${pxValue / 16}${withUnit && 'rem'}`;
 
 const breakpoints = styledBreakpoint(sizes);
 
 const awesomegrid = {
     breakpoints: {
-        xs: 0,
+        xs: getRem(sizes.xs),
         sm: getRem(sizes.s),
         md: getRem(sizes.m),
         lg: getRem(sizes.l),
-        xl: getRem(sizes.l)
+        xl: getRem(sizes.xl)
     },
     container: {
         xs: 'full',
         sm: 'full',
         md: 'full',
-        lg: getRem(sizes.l),
-        xl: getRem(sizes.l)
+        lg: 'full',
+        xl: 'full'
     },
     paddingWidth: {
         xs: 1.5,
         sm: 1.5,
-        md: 2
+        md: getRem(60)
     }
 };
 
@@ -58,16 +58,13 @@ const typography = {
     fontSizes,
     bodyFontFamily,
     bodySize,
-    headingFontFamily: bodyFontFamily,
+    headingFontFamily,
     headingLineHeight,
     bodyLineHeight,
-    bodyColor: color('primary', 'dark'),
-    headingColor: color('primary', 'dark'),
+    bodyColor: color('primary', 'grayscale'),
+    headingColor: color('primary', 'grayscale'),
     extra: {
-        headingFontFamily,
-        heading: `
-            text-transform: uppercase;
-        `
+        headingFontFamily
     }
 };
 
@@ -79,6 +76,9 @@ const basicTheme: DefaultTheme = {
     breakpoints,
     awesomegrid,
     typography,
+    utils: {
+        getRem
+    }
 }
 
 export default basicTheme;

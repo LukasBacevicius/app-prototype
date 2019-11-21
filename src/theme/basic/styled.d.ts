@@ -20,5 +20,6 @@ declare module 'styled-components' {
         typography?: any;
         breakpoints?: BreakPoints;
         easings?: any;
+        utils: any;
     }
 }

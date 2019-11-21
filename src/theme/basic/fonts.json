@@ -1,7 +1,7 @@
 {
-    "headingFontFamily": "Casual, Georgia, 'Times New Roman', Times, serif",
-    "bodyFontFamily": "Poppins, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-    "fontSizes": ["4rem", "2rem", "1.333rem", "1rem", "0.75rem", "10px"],
+    "headingFontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "bodyFontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "fontSizes": ["2.5rem", "2rem", "1.5rem", "1.25rem", "1.125rem", "0.875"],
     "bodySize": "1rem",
     "headingLineHeight": 1,
     "bodyLineHeight": 1.2
