@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Route, Switch } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 import { Theme } from './theme';
@@ -19,11 +19,18 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     display: flex;
   }
+
+  /* For Dark/Light mode transition */
+  * {
+    transition: color .2s ease, background .2s ease, border-color .2s ease;
+  }
 `;
 
 const App: FC = () => {
+  const [mode] = useState('light');
+
   return (
-    <ThemeProvider theme={Theme}>
+    <ThemeProvider theme={Theme(mode)}>
       <>
         <GlobalStyles />
         <GlobalTypeStyles />

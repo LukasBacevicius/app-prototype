@@ -6,7 +6,6 @@ import styled from 'styled-components';
 const StyledLegend = styled.div`
     padding-bottom: 1rem;
     margin-bottom: 2rem;
-    border-bottom: 1px solid ${({ theme }) => theme.color('primary', 'background', 90)};
 `;
 
 const Legend: FC = ({ children }) => (

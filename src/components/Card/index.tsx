@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledCard = styled.div`
     padding: ${({ theme }) => theme.utils.getRem(25, true)};
-    border-radius: 2px;
+    border-radius: .2rem;
     background: ${({ theme }) => theme.color('primary', 'background', 90)};
     box-shadow: rgba(0, 0, 0, 0.06) 0px 4px 12px 0px;
     position: relative;
