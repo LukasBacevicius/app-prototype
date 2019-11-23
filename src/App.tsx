@@ -1,11 +1,14 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { Route, Switch } from 'react-router';
+import { useSelector, useDispatch } from 'react-redux'
 import { ThemeProvider } from 'styled-components';
-import { Theme } from './theme';
 import { createGlobalStyle } from 'styled-components';
 import { GlobalTypeStyles } from "styled-typography";
+import { Theme } from './theme';
+import { setMode } from './actions/theme';
 import Main from './containers/Main';
 import { Sidebar } from './containers/Sidebar';
+import ThemeModeToggle from './components/ThemeMode'
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -20,21 +23,35 @@ const GlobalStyles = createGlobalStyle`
     display: flex;
   }
 
-  /* For Dark/Light mode transition */
-  * {
-    transition: color .2s ease, background .2s ease, border-color .2s ease;
+  .--theme-change {
+    * {
+      transition: ${({ theme }) => theme.transitions.default(['color', 'background', 'border-color'])};
+    }
   }
 `;
 
 const App: FC = () => {
-  const [mode] = useState('light');
+  //@ts-ignore
+  const mode = useSelector((state) => state.theme.mode);
+  const dispatch = useDispatch();
+  const isDarkMode = mode !== 'light';
+
+  const changeTheme = () => {
+    document.body.classList.add('--theme-change');
+
+    dispatch(setMode(isDarkMode));
+
+    setTimeout(() => document.body.classList.remove('--theme-change'), 300);
+  };
 
   return (
     <ThemeProvider theme={Theme(mode)}>
       <>
         <GlobalStyles />
         <GlobalTypeStyles />
-        <Sidebar />
+        <Sidebar>
+          <ThemeModeToggle onClick={changeTheme} checked={isDarkMode} />
+        </Sidebar>
         <Switch>
           <Route path="/" component={Main} />
         </Switch>

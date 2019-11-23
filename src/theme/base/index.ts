@@ -2,8 +2,6 @@
     TODO:
     This needs to be way cleaner
 */
-
-import { DefaultTheme } from 'styled-components';
 import colors from './colors.json';
 import sizes from './sizes.json';
 import {
@@ -17,7 +15,6 @@ import {
 import zIndexes from './zindex.json';
 // @ts-ignore - no types
 import styledBreakpoint from '@humblebee/styled-components-breakpoint';
-import { defaultTheme } from 'styled-typography';
 
 export default (mode: string = 'dark') => {
     function color(section: string, name: string, tint: string = '100'): any {
@@ -30,7 +27,7 @@ export default (mode: string = 'dark') => {
         return zIndexes[section][element];
     }
 
-    const getRem = (pxValue: number, withUnit: boolean = false) => `${pxValue / 16}${withUnit && 'rem'}`;
+    const getRem = (pxValue: number, withUnit: boolean = false) => `${pxValue / 16}${withUnit ? 'rem' : ''}`;
 
     const awesomegrid = {
         breakpoints: {
@@ -79,6 +76,13 @@ export default (mode: string = 'dark') => {
         breakpoints,
         awesomegrid,
         typography,
+        transitions: {
+            default: (toAnimate: Array<string>, duration: string = '.3s') => toAnimate.map(item => `${item} ${duration} cubic-bezier(0.25, 0.46, 0.45, 0.94)`).join(',')
+        },
+        shadows: {
+            default: 'rgba(84, 70, 35, 0.15) 0px 2px 8px, rgba(84, 70, 35, 0.15) 0px 1px 3px',
+            hover: 'rgba(0, 0, 0, 0.1) 0px 16px 48px 0px'
+        },
         utils: {
             getRem
         }

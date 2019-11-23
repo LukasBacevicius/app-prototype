@@ -19,7 +19,8 @@ declare module 'styled-components' {
         awesomegrid?: any;
         typography?: any;
         breakpoints?: BreakPoints;
-        easings?: any;
+        transitions?: any;
+        shadows?: any;
         utils: any;
     }
 }
