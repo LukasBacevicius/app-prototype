@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import { GlobalTypeStyles } from "styled-typography";
 import { Theme } from './theme';
+import { stateProps } from './reducers';
 import { setMode } from './actions/theme';
 import Main from './containers/Main';
 import { Sidebar } from './containers/Sidebar';
@@ -31,8 +32,7 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 const App: FC = () => {
-  //@ts-ignore
-  const mode = useSelector((state) => state.theme.mode);
+  const mode = useSelector(({ theme }: stateProps) => theme.mode);
   const dispatch = useDispatch();
   const isDarkMode = mode !== 'light';
 

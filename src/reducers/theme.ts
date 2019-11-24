@@ -4,8 +4,8 @@ const initialState = {
     mode: 'light'
 };
 
-//@ts-ignore
-export default function themeReducer(state, { type, data }) {
+
+export default function themeReducer(state: any, { type, data }: { type: string, data: any }) {
     if (typeof state === 'undefined') {
         return initialState;
     }

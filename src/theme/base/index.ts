@@ -17,17 +17,17 @@ import zIndexes from './zindex.json';
 import styledBreakpoint from '@humblebee/styled-components-breakpoint';
 
 export default (mode: string = 'dark') => {
-    function color(section: string, name: string, tint: string = '100'): any {
+    function color(section: string, name: string, tint: string = '100'): string | undefined {
         // @ts-ignore
         return colors[mode][section][name][tint];
     }
 
-    function zIndex(section: string, element: string) {
+    function zIndex(section: string, element: string) : string | undefined {
         // @ts-ignore
         return zIndexes[section][element];
     }
 
-    const getRem = (pxValue: number, withUnit: boolean = false) => `${pxValue / 16}${withUnit ? 'rem' : ''}`;
+    const getRem = (pxValue: number, withUnit: boolean = false) : string | undefined => `${pxValue / 16}${withUnit ? 'rem' : ''}`;
 
     const awesomegrid = {
         breakpoints: {
@@ -67,6 +67,15 @@ export default (mode: string = 'dark') => {
         }
     };
 
+    const transitions = {
+        default: (toAnimate: Array<string>, duration: string = '.3s') : string => toAnimate.map(item => `${item} ${duration} cubic-bezier(0.25, 0.46, 0.45, 0.94)`).join(',')
+    };
+
+    const shadows = {
+        default: 'rgba(84, 70, 35, 0.15) 0px 2px 8px, rgba(84, 70, 35, 0.15) 0px 1px 3px',
+        hover: 'rgba(0, 0, 0, 0.1) 0px 16px 48px 0px'
+    };
+
     return {
         //@ts-ignore
         colors: colors[mode],
@@ -76,13 +85,8 @@ export default (mode: string = 'dark') => {
         breakpoints,
         awesomegrid,
         typography,
-        transitions: {
-            default: (toAnimate: Array<string>, duration: string = '.3s') => toAnimate.map(item => `${item} ${duration} cubic-bezier(0.25, 0.46, 0.45, 0.94)`).join(',')
-        },
-        shadows: {
-            default: 'rgba(84, 70, 35, 0.15) 0px 2px 8px, rgba(84, 70, 35, 0.15) 0px 1px 3px',
-            hover: 'rgba(0, 0, 0, 0.1) 0px 16px 48px 0px'
-        },
+        transitions,
+        shadows,
         utils: {
             getRem
         }

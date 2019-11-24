@@ -22,7 +22,7 @@ const Toggle = styled.label`
             width: 50%;
             position: absolute;
             background: ${({ theme }) => theme.color('primary', 'background', 90)};
-            box-shadow: ${({theme}) => theme.shadows.default};
+            box-shadow: ${({ theme }) => theme.shadows.default};
             transition: ${({ theme }) => theme.transitions.default(['transform'])};
             z-index: 0;
         }
@@ -51,7 +51,7 @@ const Checkbox = styled.input`
     }
 `;
 export interface ThemeModeToggleProps {
-    onClick?: any;
+    onClick?: () => void;
     checked?: boolean;
 }
 

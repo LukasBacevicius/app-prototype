@@ -11,8 +11,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const sagaMiddleware = createSagaMiddleware();
 
-// @ts-ignore
-const rootReducer = (state, action) => combineReducers({
+const rootReducer = (state: any, action: any) => combineReducers({
     ...reducers,
     router: connectRouter(history),
 })(state, action);
